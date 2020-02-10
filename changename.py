@@ -1,5 +1,20 @@
-import cv2
-import time
 import os
-import threading
-import numpy as np
+
+path_circle = "C:/Users/EDZ/Desktop/strawberry"
+
+# 获取该目录下所有文件，存入列表中
+fileList = os.listdir(path_circle)
+print(fileList)
+print(len(fileList))
+n = 0
+for i in fileList:
+    # 设置旧文件名（就是路径+文件名）
+    oldname = path_circle + os.sep + fileList[n]  # os.sep添加系统分隔符
+
+    # 设置新文件名
+    newname = path_circle + os.sep + str(n + 1) + '.jpg'
+
+    os.rename(oldname, newname)  # 用os模块中的rename方法对文件改名
+    print(oldname, '======>', newname)
+
+    n += 1
